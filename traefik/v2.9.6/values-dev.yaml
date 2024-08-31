@@ -23,6 +23,7 @@ ports:
     nodePort: 31007
 service:
   enabled: true
+  type: NodePort
 
 logs:
   general:
