@@ -192,18 +192,18 @@ ports:
     exposedPort: 9000
     protocol: TCP
   web:
-    port: 8000
-    # 宿主机端口
+    port: 80
+    # 宿主机端口; 当使用hostPort时, 容器Port应该和hostPort保持一致。
     hostPort: 80
     expose: true
     # service端口
     exposedPort: 8080
     protocol: TCP
   websecure:
-    port: 8443
+    port: 443
     hostPort: 443
     expose: true
-    exposedPort: 9443
+    exposedPort: 8443
     protocol: TCP
     http3:
       enabled: false
