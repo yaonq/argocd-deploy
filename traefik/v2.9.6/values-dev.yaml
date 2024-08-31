@@ -344,9 +344,14 @@ affinity: {}
 #            app.kubernetes.io/instance: '{{ .Release.Name }}-{{ .Release.Namespace }}'
 #        topologyKey: kubernetes.io/hostname
 
+# 我在master节点上新增了该labels, master节点上有污点需要配置相关容忍。
 nodeSelector:
   traefik: "true"
-tolerations: []
+# 配置污点容忍
+tolerations: 
+- key: "node-role.kubernetes.io/control-plane"
+  operator: "Exists"
+  effect: "NoSchedule"
 topologySpreadConstraints: []
 priorityClassName: ""
 
