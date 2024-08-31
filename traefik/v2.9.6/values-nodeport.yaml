@@ -1,0 +1,20 @@
+ports:
+  web:
+    port: 8000
+    expose: true
+    exposedPort: 80
+    nodePort: 31004
+  websecure:
+    port: 8443
+    expose: true
+    exposedPort: 443
+    nodePort: 31005
+service:
+  enabled: true
+  type: nodePort
+
+logs:
+  general:
+    level: DEBUG
+  access:
+    enabled: true
