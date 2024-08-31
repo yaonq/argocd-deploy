@@ -18,6 +18,8 @@ service:
 logs:
   general:
     level: DEBUG
+  access:
+    enabled: true
 
 # 调度到master节点, 设置污点容忍
 nodeSelector:
