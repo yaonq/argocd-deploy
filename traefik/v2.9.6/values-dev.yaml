@@ -1,12 +1,15 @@
 api:
   dashboard: true
   insecure: true
+  debug: true
   
 # 创建dashboard ingressRoute
 ingressRoute:
   dashboard:
     enabled: true
-    
+    matchRule: Host(`traefik.yanggq.com`) && (PathPrefix(`/dashboard`) || PathPrefix(`/api`))
+    entryPoints: ["web"]
+
 hostNetwork: true
 # 使用宿主机上的端口暴露端点, 不需要创建k8s service; 同时确保hostNetwork=true, 并且容器端口和宿主机端口保持一致
 ports:
@@ -37,3 +40,7 @@ deployment:
   enabled: true
   kind: Deployment
   replicas: 1
+
+metrics:
+  prometheus:
+    addEntryPointsLabels: false
