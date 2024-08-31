@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Default values for Traefik
 image:
   repository: traefik
