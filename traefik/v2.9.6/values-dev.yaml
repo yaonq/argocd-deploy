@@ -21,7 +21,7 @@ logs:
 
 # 调度到master节点, 设置污点容忍
 nodeSelector:
-  "traefik": true
+  "traefik": "true"
 tolerations:
 - key: "node-role.kubernetes.io/control-plane"
   operator: "Exists"
