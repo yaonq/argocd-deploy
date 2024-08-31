@@ -18,3 +18,5 @@ logs:
     level: DEBUG
   access:
     enabled: true
+
+hostNetwork: false
