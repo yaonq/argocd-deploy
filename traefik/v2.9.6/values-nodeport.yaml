@@ -11,6 +11,11 @@ ports:
     expose: true
     exposedPort: 443
     nodePort: 31005
+  traefik:
+    port: 9000
+    expose: true
+    exposedPort: 9000
+    nodePort: 31006
 service:
   enabled: true
   type: NodePort
@@ -21,13 +26,10 @@ logs:
   access:
     enabled: true
 
-# traefik进程启动时追加进的命令
 additionalArguments: 
 - "--api=true"
 - "--api.insecure=true"
 - "--api.dashboard=true"
-# 在traefik中, 所有的服务都由
-# --api=true用来开启traefik的api服务, 但是此时在外部无法访问, 需要使用--api.insecure=true开启这种不安全的访问, 这两个选项开启时, 在暴露dashboard时通过api@internal可以访问到内部的数据; 
 
 
 
