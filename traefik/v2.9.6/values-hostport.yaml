@@ -11,7 +11,7 @@ ports:
     hostPort: 443
   traefik:
     port: 9000
-    expose: false
+    expose: true
 service:
   enabled: false
 
