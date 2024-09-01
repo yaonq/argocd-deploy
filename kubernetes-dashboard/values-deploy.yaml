@@ -58,3 +58,6 @@ web:
         containerPort: 8000
         protocol: TCP
   automountServiceAccountToken: true
+
+kong:
+  enabled: false
