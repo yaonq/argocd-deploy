@@ -1,0 +1,30 @@
+# traefik默认使用host network
+hostNetwork: false
+ports:
+  web:
+    port: 8000
+    expose: false
+    hostPort: 31004
+  websecure:
+    port: 8443
+    expose: false
+    hostPort: 443
+  traefik:
+    port: 9000
+    expose: false
+service:
+  enabled: false
+
+logs:
+  general:
+    level: DEBUG
+  access:
+    enabled: true
+
+additionalArguments: 
+- "--api=true"
+- "--api.insecure=true"
+- "--api.dashboard=true"
+
+
+
