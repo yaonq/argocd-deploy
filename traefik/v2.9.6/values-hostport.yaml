@@ -4,7 +4,7 @@ ports:
   web:
     port: 8000
     expose: false
-    hostPort: 31004
+    hostPort: 80
   websecure:
     port: 8443
     expose: false
@@ -26,5 +26,6 @@ additionalArguments:
 - "--api.insecure=true"
 - "--api.dashboard=true"
 
-
-
+ingressRoute:
+  dashboard:
+    enabled: false

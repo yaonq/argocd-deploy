@@ -31,8 +31,4 @@ additionalArguments:
 - "--api.insecure=true"
 - "--api.dashboard=true"
 
-ingressRoute:
-  dashboard:
-    enabled: false
-
 
