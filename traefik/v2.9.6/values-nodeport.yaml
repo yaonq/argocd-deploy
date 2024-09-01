@@ -33,8 +33,6 @@ additionalArguments:
 
 ingressRoute:
   dashboard:
-    enabled: true
-    matchRule: Host(`traefik.yanggq.com`) && (PathPrefix(`/dashboard`) || PathPrefix(`/api`))
-    entryPoints: ["web"]
+    enabled: false
 
 
