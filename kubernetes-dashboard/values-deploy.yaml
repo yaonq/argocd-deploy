@@ -1,0 +1,60 @@
+app:
+  mode: 'dashboard'
+  image:
+    pullPolicy: IfNotPresent
+  ingress:
+    enabled: true
+    hosts:
+      - k8sdashboard.yanggq.com
+    ingressClassName: traefik
+    useDefaultIngressClass: false
+    useDefaultAnnotations: true
+    pathType: ImplementationSpecific
+    path: /
+    tls:
+      enabled: false
+
+auth:
+  role: auth
+  image:
+    repository: docker.io/kubernetesui/dashboard-auth
+    tag: 1.1.3
+  scaling:
+    replicas: 1
+    revisionHistoryLimit: 10
+  containers:
+    ports:
+      - name: auth
+        containerPort: 8000
+        protocol: TCP
+  automountServiceAccountToken: true
+
+api:
+  role: api
+  image:
+    repository: docker.io/kubernetesui/dashboard-api
+    tag: 1.7.0
+  scaling:
+    replicas: 1
+    revisionHistoryLimit: 10
+  containers:
+    ports:
+      - name: api
+        containerPort: 8000
+        protocol: TCP
+  automountServiceAccountToken: true
+
+web:
+  role: web
+  image:
+    repository: docker.io/kubernetesui/dashboard-web
+    tag: 1.4.0
+  scaling:
+    replicas: 1
+    revisionHistoryLimit: 10
+  containers:
+    ports:
+      - name: web
+        containerPort: 8000
+        protocol: TCP
+  automountServiceAccountToken: true
