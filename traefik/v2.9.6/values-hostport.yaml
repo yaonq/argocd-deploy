@@ -1,17 +1,16 @@
 # traefik默认使用host network
-hostNetwork: false
+# 在Unix系统上, 绑定到小于1024的端口通常需要超级用户权限: 1. 使用CAP_NET_BIND_SERVICE; 2. runAsUser: 0; 3. 使用hostwork
+hostNetwork: true
 ports:
   web:
     port: 80
-    expose: false
     hostPort: 80
   websecure:
     port: 443
-    expose: false
     hostPort: 443
   traefik:
     port: 9000
-    expose: true
+
 service:
   enabled: false
 
